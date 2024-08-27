@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotifong - Web Player: Music for everyone</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/new.css" />
+  <link rel="stylesheet" href="css/utility.css" />
+</head>
+
+<body>
+  <main class="main">
+    <aside class="sidebar left">
+      <nav class="home bg-grey radius">
+
+        <img src="img/close.svg" alt="" class="invert close">
+
+        <img src="img/logo.svg" alt="logo" class="logo invert" style="width: 110px" />
+        <ul>
+          <li><img src="img/home.svg" alt="home" class="invert" />Home</li>
+          <li>
+            <img src="img/search.svg" alt="Search" class="invert search" />
+
+            <form onsubmit="handlesubmit(event)" id="search">
+              <input type="text" name="songname" id="songname" placeholder="Search for Jaz" >
+            </form>
+
+          </li>
+        </ul>
+      </nav>
+
+      <div class="library bg-grey radius">
+        <div class="heading flex">
+          <img src="img/playlist.svg" alt="playlist" class="invert" />
+          <h2>Your Library</h2>
+        </div>
+        <div class="songlist">
+          <ul>
+
+
+          </ul>
+
+        </div>
+
+        <div class="lang">
+          <button class="lang-btn flex">
+            <img src="img/globe (1).png" alt="" class="globe invert" />English
+          </button>
+        </div>
+      </div>
+    </aside>
+    <section class="right bg-grey radius">
+      <div class="header flex">
+        <div class="arrow">
+          <img src="img/hamburger.svg" alt="" class="invert hamburger">
+          <svg class="arr" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff"
+            fill="none">
+            <path d="M17 4L8.66943 10.0405C6.44352 11.6545 6.44353 12.3455 8.66943 13.9595L17 20" stroke="#ffffff"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <svg class="arr" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff"
+            fill="none">
+            <path d="M7 4L15.3306 10.0405C17.5565 11.6545 17.5565 12.3455 15.3306 13.9595L7 20" stroke="#ffffff"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="buttons">
+          <button class="sign">Sign up</button>
+          <button class="log">Login</button>
+        </div>
+      </div>
+      <div class="playlist">
+        <h1>Spotify Songs</h1>
+        <div class="cardcontainer flex">
+
+
+        </div>
+        <div class="playbar ">
+          <div class="seekbar">
+
+            <input type="range" id="progress" min="0" max="100" value="0" step="1" style="padding:0" />
+
+          </div>
+          <div class="abovebar">
+
+
+            <div class="songinfo"></div>
+            <div class="songbuttons">
+              <img style="width: 30px;" id="previous" src="img/prevsong.svg" alt="" class="invert" />
+              <img style="width: 30px;" id="play" src="img/play.svg" alt="" class="invert" />
+              <img style="width: 30px;" id="next" src="img/nextsong.svg" alt="" class="invert" />
+            </div>
+            <div class="timevol">
+              <div class="songtime">
+
+              </div>
+              <div class="volume">
+                <img src="img/volume.svg" alt="volume" class=" invert vimg" id="volimg">
+                <input type="range" name="volume" min="0" max="100" id="vol">
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+  </main>
+
+
+  <script src="js/sc.js"></script>
+
+</body>
+
+</html>
