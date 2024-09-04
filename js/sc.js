@@ -1,4 +1,4 @@
-
+console.log("LIVE RELOAD ENABLED ")
 let currentSong = new Audio();
 let isPlaying = false;
 let isMuted = false; // Track the mute state
@@ -38,7 +38,8 @@ const handlesubmit = async (e) => {
 const getSongs = async (songname) => {
     let cardContainer = document.querySelector(".cardcontainer");
     cardContainer.innerHTML = `<div class="spinner"></div>`;
-    let res = await fetch("https://saavn.dev/api/search/songs?query=" + songname);
+    // let res = await fetch("https://saavn.dev/api/search/songs?query=" + songname);
+    let res = await fetch(`https://saavn.dev/api/search/songs?query=${songname}&limit=18`);
     let result = await res.json();
     songs = result.data.results.map(song => ({
         url: song.downloadUrl[3].url,
@@ -48,7 +49,7 @@ const getSongs = async (songname) => {
 
     // Create song cards
     songs.forEach((song, index) => {
-        let songItem = `<div class="card">
+        let songItem = `<div class="card" >
                                 <img src="${result.data.results[index].image[2].url}" alt="" />
                                 <h2>${song.name}</h2>
                                 <button onclick="playMusic('${song.url}', '${song.name}', ${index})" class="play">
@@ -63,6 +64,7 @@ const getSongs = async (songname) => {
 
     
 };
+
 
 const playMusic = (url, name, index) => {
     if (currentSong.src !== url) {
@@ -169,4 +171,9 @@ volimg.addEventListener("click", () => {
     }
     isMuted = !isMuted;
 });
+document.body.addEventListener("contextmenu",(e)=>{
+    e.preventDefault(); // Prevents the default right-click menu from appearing
+    alert("Whoa! Trying to right-click? This isn’t a secret cheat code zone!");
+  
+})
 makeInitialSongs()
